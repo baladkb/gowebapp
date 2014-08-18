@@ -1,0 +1,628 @@
+<!-- 
+//Html file,Javascript,css 
+// ******************************************************************************
+// * Copyright (c) Company Name. All Rights Reserved.
+// *
+// * $Workfile:   index.html
+// * $Revision:   0.2
+// * $Author:   BALAKRISHNAN.K
+// * $Date:   AUG 04 2014
+// * $UpdatedDate:
+// * $UpdatedDated By:
+// * $Description :
+// ******************************************************************************
+-->
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Go - Web Apps</title>
+<style type="text/css">
+body {
+	background: #fff;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+	color: #4e4e4e;
+}
+
+.wrapper {
+	width: 960px;
+	margin: auto;
+}
+
+.left-bar-home {
+	margin-top: 8px;
+	padding-right: 15px;
+	width: 588px;
+}
+
+.right-bar-home {
+	display: none;
+	position: absolute;
+	top: 15%;
+	left: 30%;
+	width: 35%;
+	height: 50%;
+	padding: 16px;
+	background-color: white;
+	z-index: 1002;
+	overflow: auto;
+	margin-top: 8px;
+	border-left: 1px solid #d8dadb;
+	text-align: center;
+	background-clip: padding-box;
+	border: 1px solid #ECF1F5;
+	border-bottom-color: #ECF1F5;
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), inset 0 0 1px
+		1px rgba(255, 255, 255, 0.1), 0 2px 10px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), inset 0 0 1px 1px
+		rgba(255, 255, 255, 0.1), 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.right-removebar-home {
+	display: none;
+	position: absolute;
+	top: 25%;
+	left: 30%;
+	width: 40%;
+	height: 10%;
+	padding: 16px;
+	background-color: white;
+	z-index: 1002;
+	overflow: auto;
+	margin-top: 8px;
+	border-left: 1px solid #d8dadb;
+	text-align: center;
+	background-clip: padding-box;
+	border: 1px solid #ECF1F5;
+	border-bottom-color: #ECF1F5;
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), inset 0 0 1px
+		1px rgba(255, 255, 255, 0.1), 0 2px 10px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), inset 0 0 1px 1px
+		rgba(255, 255, 255, 0.1), 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.textbox {
+	background: white;
+	border: 1px solid #DDD;
+	border-radius: 5px;
+	box-shadow: 0 0 5px #DDD inset;
+	color: #666;
+	outline: none;
+	height: 19px;
+	width: 160px;
+}
+
+.content {
+	margin-bottom: 30px;
+}
+
+.ahref {
+	padding-top: 6px;
+	padding-bottom: 6px;
+	padding-left: 30px;
+	padding-right: 20px;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	background: url(resources/img/icon-arrow.png) no-repeat 15px 10px
+		#DD4A38;
+}
+
+h2 {
+	padding: 0px;
+	margin-top: 10px;
+	text-align: left;
+	color: #010d3a;
+	font-weight: normal;
+	font-size: 18px;
+}
+
+h2 span {
+	color: #f0413e;
+}
+
+p {
+	margin-top: 12px;
+	line-height: 19px;
+}
+
+.empty1 {
+	color: #FFF;
+}
+
+.empty {
+	color: #FFF;
+	padding: 28px 10px 10px 36px;
+	margin: 10px 0px;
+}
+
+.bdc_success,.bdc_error {
+	padding: 10px 10px 10px 36px;
+	margin: 10px 0px;
+	border: solid 1px;
+	border-radius: 3px;
+	width: 93%;
+	font-size: 13px;
+}
+
+.bdc_error {
+	border-color: #FBD3C6;
+	background: #FDE4E1;
+	color: #CB4721;
+	background-image: url('resources/img/error.png');
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+
+.bdc_success {
+	border-color: #AED271;
+	background: #DFF2BF;
+	color: #4F8A10;
+	background-image: url('resources/img/success.png');
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+
+table#tblTest {
+	width: 100%;
+	font-family: verdana, arial, sans-serif;
+	font-size: 12px;
+	color: #333333;
+	border-width: 0;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+
+table#tblTest tr.highlight td {
+	background-color: #8888ff;
+}
+
+table#tblTest tr.normal {
+	background-color: #ffffff;
+}
+
+table#tblTest th {
+	white-space: nowrap;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+
+table#tblTest td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+
+.stlyebold {
+	color: #003366;
+	font-family: Verdana;
+	font-size: 8.5pt;
+	font-weight: normal;
+}
+
+.black_overlay {
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	z-index: 1001;
+	-moz-opacity: 0.8;
+	opacity: .80;
+	filter: alpha(opacity =         80);
+}
+</style>
+<script type="text/javascript">
+	function trim(str) {
+		while (str.charAt(str.length - 1) == " ")
+			str = str.substring(0, str.length - 1);
+		while (str.charAt(0) == " ")
+			str = str.substring(1, str.length);
+		return str;
+	}
+	function isInteger(s){
+		var i;
+		for (i = 0; i < s.length; i++){   
+		var c = s.charAt(i);
+		if (((c < "0") || (c > "9")))
+		{
+		return false;
+		}
+		}
+		return true;
+		}
+	function mobileNumber(inputtxt)  
+	{  
+	var phoneno = /^\d{10}$/;  
+	return phoneno.test(inputtxt);
+	}
+	function Mailvalidation(str) {
+			var lastAtPos = str.lastIndexOf('@');
+		    var lastDotPos = str.lastIndexOf('.');
+			if(!(lastAtPos < lastDotPos && lastAtPos > 0 && str.indexOf('@@') == -1 && str.indexOf('..') == -1 && lastDotPos > 2 && (str.length - lastDotPos) > 2))
+			{
+			return false;
+			}
+		return true;
+		}
+	function Select(selectedID) {
+		//alert(selectedID);
+		var xmlhttp;
+		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp = new XMLHttpRequest();
+		} else {// code for IE6, IE5
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		if (selectedID == 'Add') {
+			var sorg = document.getElementById('orgID').value;
+			var sName = document.getElementById('nameID').value;
+			var sadd = document.getElementById('addID').value;
+			var smono = document.getElementById('mobID').value;
+			var semail = document.getElementById('emailID').value;
+			if (trim(sorg) == '' || trim(sorg) == null) {
+				document.getElementById('myDiv').innerHTML = "Organisation is Required";
+				callback("myDiv", "bdc_error");
+				document.getElementById('orgID').focus();
+				return false;
+			}
+			if (trim(sName) == '' || trim(sName) == null) {
+				document.getElementById('myDiv').innerHTML = "Name is Required";
+				callback("myDiv", "bdc_error");
+				document.getElementById('nameID').focus();
+				return false;
+			}
+			if (trim(sadd) == '' || trim(sadd) == null) {
+				document.getElementById('myDiv').innerHTML = "Address is Required";
+				callback("myDiv", "bdc_error");
+				document.getElementById('addID').focus();
+				return false;
+			}
+			if (trim(smono) == '' || trim(smono) == null) {
+				document.getElementById('myDiv').innerHTML = "MobileNo is Required";
+				callback("myDiv", "bdc_error");
+				document.getElementById('mobID').focus();
+				return false;
+			}
+			if (!trim(smono) == '' &&  !isInteger(trim(smono))) {
+				document.getElementById('myDiv').innerHTML = "Mobile No is not a Number";
+				callback("myDiv", "bdc_error");
+				document.getElementById('mobID').focus();
+				return false;
+			}
+			if (!trim(smono) == '' &&  !mobileNumber(trim(smono))) {
+				document.getElementById('myDiv').innerHTML = "Mobile No should be 10 Digit  only";
+				callback("myDiv", "bdc_error");
+				document.getElementById('mobID').focus();
+				return false;
+			}
+			if (trim(semail) == '' || trim(semail) == null) {
+				document.getElementById('myDiv').innerHTML = "EmailID is Required";
+				callback("myDiv", "bdc_error");
+				document.getElementById('emailID').focus();
+				return false;
+			}
+			if (!trim(semail) == '' &&  !Mailvalidation(trim(semail))) {
+				document.getElementById('myDiv').innerHTML = "Enter Valid Email ID";
+				callback("myDiv", "bdc_error");
+				document.getElementById('emailID').focus();
+				return false;
+			}
+			var url = "/add?org=" + encodeURIComponent(sorg) + "&name="
+					+ encodeURIComponent(sName) + "&address="
+					+ encodeURIComponent(sadd) + "&mob="
+					+ encodeURIComponent(smono) + "&email="
+					+ encodeURIComponent(semail);
+		} else if (selectedID == 'profile') {
+			var url = "/select";
+		} else if (selectedID == 'Edit') {
+			
+			var scodeid = document.getElementById('codeid').value;
+			var sorgID = document.getElementById('orgID').value;
+			var sName = document.getElementById('nameID').value;
+			var sadd = document.getElementById('addID').value;
+			var smono = document.getElementById('mobID').value;
+			var semail = document.getElementById('emailID').value;
+			if (trim(sorgID) == '' || trim(sorgID) == null) {
+				document.getElementById('myDiv').innerHTML = "Organisation is Required";
+				callback("myDiv", "bdc_error");
+				document.getElementById('orgID').focus();
+				return false;
+			}
+			if (trim(sName) == '' || trim(sName) == null) {
+				document.getElementById('myDiv').innerHTML = "Name is Required";
+				callback("myDiv", "bdc_error");
+				document.getElementById('nameID').focus();
+				return false;
+			}
+			if (trim(sadd) == '' || trim(sadd) == null) {
+				document.getElementById('myDiv').innerHTML = "Address is Required";
+				callback("myDiv", "bdc_error");
+				document.getElementById('addID').focus();
+				return false;
+			}
+			if (trim(smono) == '' || trim(smono) == null) {
+				document.getElementById('myDiv').innerHTML = "MobileNo is Required";
+				callback("myDiv", "bdc_error");
+				document.getElementById('mobID').focus();
+				return false;
+			}
+			if (!trim(smono) == '' &&  !isInteger(trim(smono))) {
+				document.getElementById('myDiv').innerHTML = "Mobile No is not a Number";
+				callback("myDiv", "bdc_error");
+				document.getElementById('mobID').focus();
+				return false;
+			}
+			if (!trim(smono) == '' &&  !mobileNumber(trim(smono))) {
+				document.getElementById('myDiv').innerHTML = "Mobile No should be 10 Digit  only";
+				callback("myDiv", "bdc_error");
+				document.getElementById('mobID').focus();
+				return false;
+			}
+			if (trim(semail) == '' || trim(semail) == null) {
+				document.getElementById('myDiv').innerHTML = "EmailID is Required";
+				callback("myDiv", "bdc_error");
+				document.getElementById('emailID').focus();
+				return false;
+			}
+			if (!trim(semail) == '' &&  !Mailvalidation(trim(semail))) {
+				document.getElementById('myDiv').innerHTML = "Enter Valid Email ID";
+				callback("myDiv", "bdc_error");
+				document.getElementById('emailID').focus();
+				return false;
+			}
+			var url = "/update?name=" + encodeURIComponent(sName) + "&address="
+					+ encodeURIComponent(sadd) + "&mob="
+					+ encodeURIComponent(smono) + "&email="
+					+ encodeURIComponent(semail) + "&scodeid="
+					+ encodeURIComponent(scodeid) + "&org="
+					+ encodeURIComponent(sorgID);
+		} else if (selectedID == 'Remove') {
+			var scodeid = document.getElementById('codeid').value;
+			var url = "/remove?codeid=" + encodeURIComponent(scodeid);
+		}
+		xmlhttp.open("GET", url, true);
+		xmlhttp.send();
+
+		xmlhttp.onreadystatechange = function() {
+			//alert(xmlhttp.readyState);
+			if (xmlhttp.readyState == 4) {
+				if (selectedID == 'Add') {
+					if (xmlhttp.responseText == 'Success') {
+						//alert("ok");
+						startTimer();
+						clear();
+						callback("mydiv1", "bdc_success");
+						document.getElementById("mydiv1").innerHTML = xmlhttp.responseText;
+						Select('profile');
+						addclose('light', 'fade', 'none');
+					} else {
+						callback("myDiv", "bdc_error");
+						document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+					}
+					//alert(xmlhttp.responseText);
+
+				} else if (selectedID == 'profile') {
+					//document.getElementById("resID").innerHTML = xmlhttp.responseText;
+					var a = xmlhttp.responseText;
+					//alert(a);
+					jsonCre(a);
+				} else if (selectedID == 'Edit') {
+					if (xmlhttp.responseText == 'Success') {
+						//alert("ok");
+						clear();
+						startTimer();
+						callback("mydiv1", "bdc_success");
+						document.getElementById("mydiv1").innerHTML = xmlhttp.responseText;
+						Select('profile');
+						addclose('light', 'fade', 'none');
+					} else {
+						callback("myDiv", "bdc_error");
+						document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+					}
+					//alert(xmlhttp.responseText);
+					document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+
+				} else if (selectedID == 'Remove') {
+					if (xmlhttp.responseText == 'Successfully Deleted') {
+						callback("mydiv1", "bdc_success");
+						/* var id = document.getElementById('nameID').value;
+						deleteRow(id); */
+						startTimer();
+						Select('profile');
+					} else {
+						callback("mydiv1", "bdc_error");
+					}
+					//alert(xmlhttp.responseText);
+
+					document.getElementById("mydiv1").innerHTML = xmlhttp.responseText;
+					addclose('removediv', 'fade', 'none');
+
+				}
+			}
+		}
+
+	}
+	function deleteRow(rowid) {
+		var row = document.getElementById(rowid);
+		row.parentNode.removeChild(row);
+	}
+	function jsonCre(responseText) {
+
+		var a = JSON.parse(responseText);
+
+		var out = "<table    id='tblTest' border='2'>";
+		out += "<thead>";
+		out += "<tr onMouseOver=\"this.className='highlight'\" onMouseOut=\"this.className='normal'\">";
+		out += "<th>Name</th>";
+		out += "<th>Organisation </th>";
+		out += "<th>Address </th>";
+		out += "<th>Mobile Number</th>";
+		out += "<th>EmailID </th>";
+		out += "<th colspan='2'>ACTIONS</th>";
+		out += "</tr>";
+		out += "</thead>";
+
+		for (i = 0; i < a.rows.length; i++) {
+
+			out += "<tr id='"+trim(a.rows[i].Name)+"' class='stlyebold'>";
+			out += "<td>" + a.rows[i].Name + "</td>";
+			out += "<td>" + a.rows[i].Organisation + "</td>";
+			out += "<td>" + a.rows[i].Address + "</td>";
+			out += "<td style=\"text-align: center;\">" + a.rows[i].Mobilenumber + "</td>";
+			out += "<td>" + a.rows[i].Emailid + "</td>";
+			out += "<td><a  style='color:blue; ' href='#' onclick=\"edit('"
+					+ trim(a.rows[i].Name) + "','" + trim(a.rows[i].Organisation) + "','"
+					+ trim(a.rows[i].Address) + "','" + trim(a.rows[i].Mobilenumber)
+					+ "','" + trim(a.rows[i].Emailid) + "','" + trim(a.rows[i].ID)
+					+ "');\" >Edit</a></td>";
+			out += "<td><a  style='color:blue; ' href='#' onclick=\"removeThis('"
+					+ trim(a.rows[i].ID)
+					+ "','"
+					+ trim(a.rows[i].Name)
+					+ "');\">Delete</a></td>";
+			out += "</tr>";
+
+		}
+		out += "</table>";
+		document.getElementById("resID").innerHTML = out;
+	}
+	function callback(enableID, className) {
+
+		document.getElementById(enableID).setAttribute("class", className);
+		document.getElementById(enableID).disabled = false;
+	}
+	function edit(name, org, add, mob, eid, id) {
+		//alert(name + "\t" + org + "\t" + add + "\t" + mob + "\t" + eid);
+		document.getElementById('light').style.display = 'block';
+		document.getElementById('fade').style.display = 'block';
+		document.getElementById('codeid').value = id;
+		document.getElementById('orgID').value = org;
+		document.getElementById('nameID').value = name;
+		document.getElementById('addID').value = add;
+		document.getElementById('mobID').value = mob;
+		document.getElementById('emailID').value = eid;
+		document.getElementById("titleID").innerHTML = "Edit User Details";
+		document.getElementById("buttonID").innerHTML = "<a onclick=\"Select('Edit');\" class=\"ahref\" href=\"#\">Submit</a>";
+
+	}
+	function removeThis(ID, Name) {
+		//alert(nameID);
+		document.getElementById("recordID").innerHTML = Name;
+		document.getElementById('codeid').value = ID;
+		document.getElementById('removediv').style.display = 'block';
+		document.getElementById('fade').style.display = 'block';
+	}
+	function clear() {
+		document.getElementById('orgID').value = "";
+		document.getElementById('nameID').value = "";
+		document.getElementById('addID').value = "";
+		document.getElementById('mobID').value = "";
+		document.getElementById('emailID').value = "";
+		document.getElementById("buttonID").innerHTML = "<a onclick=\"Select('Add');\" class=\"ahref\" href=\"#\">Submit</a>";
+		document.getElementById("titleID").innerHTML = "Add User Details";
+		document.getElementById("myDiv").setAttribute("class", "empty1");
+
+	}
+	function addclose(lightID, fadeID, displayID) {
+		document.getElementById(lightID).style.display = displayID;
+		document.getElementById(fadeID).style.display = displayID;
+		clear();
+	}
+
+	function hideMessage() {
+		document.getElementById("mydiv1").style.visibility = "hidden";
+	}
+
+	function startTimer() {
+		document.getElementById("mydiv1").style.visibility = "inherit";
+		var tim = window.setTimeout("hideMessage()", 5000); // 5000 milliseconds = 5 seconds
+	}
+</script>
+
+</head>
+
+<body>
+
+	<input type="hidden" id="codeid" name="codeid">
+	<div id="mydiv1" class="empty"></div>
+	<div id="removediv" class="right-removebar-home">
+		<p>
+			Are you sure you want to Delete &nbsp;&nbsp;<b id="recordID"></b>'s&nbsp;&nbsp;
+			record
+		</p>
+
+		<a onclick="Select('Remove');" class="ahref" href="#">Remove</a> <a
+			class="ahref" href="javascript:void(0)"
+			onclick="addclose('removediv','fade','none');">Close</a>
+	</div>
+	<div id="content">
+		<div class="wrapper">
+			<div>
+				<a class="ahref" href="#" onclick="Select('profile');">Refresh</a> <a
+					class="ahref" href="javascript:void(0)"
+					onclick="addclose('light','fade','block');">Add</a>
+			</div>
+			<div id="fade" class="black_overlay"></div>
+			<div id="resID" class="left-bar-home"></div>
+
+			<div id="light" class="right-bar-home">
+				<div id="myDiv" class="empty1"></div>
+				<h2>
+					<span id="titleID">Add User Details</span>
+				</h2>
+				<form action="/add" method="get" novalidate>
+
+					<p>
+						<label> <span style="padding-right: 13px;">Organisation<span
+								style="font: bold; color: red;"> * </span>:
+						</span> <input maxlength="50" class="textbox" id="orgID" name="org" type="text"></label>
+					</p>
+					<p>
+						<label> <span style="padding-right: 47px;">Nmae<span
+								style="font: bold; color: red;"> * </span>:
+						</span> <input maxlength="100" class="textbox" id="nameID" name="name" type="text"></label>
+					</p>
+					<p>
+						<label> <span style="padding-right: 39px;">Address<span
+								style="font: bold; color: red;"> * </span>:
+						</span> <input maxlength="254" class="textbox" id="addID" name="address" type="text"></label>
+					</p>
+					<p>
+						<label> <span style="padding-right: 4px;">Mobile
+								Number<span style="font: bold; color: red;"> * </span>:
+						</span> <input maxlength="10" class="textbox" id="mobID" name="mob" type="text"></label>
+					</p>
+					<p>
+						<label> <span style="padding-right: 47px;">EmailID<span
+								style="font: bold; color: red;"> * </span>:
+						</span> <input maxlength="50" class="textbox" id="emailID" name="email" type="text"></label>
+					</p>
+					<p>
+						<label id="buttonID"><a onclick="Select('Add');"
+							class="ahref" href="#">Submit</a></label> <a class="ahref"
+							href="javascript:void(0)"
+							onclick="addclose('light','fade','none');">Close</a>
+					</p>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		Select('profile');
+	</script>
+</body>
+</html>
